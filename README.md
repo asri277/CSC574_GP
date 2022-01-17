@@ -1,4 +1,4 @@
-# CSC574_GP
+# CSC574_GP (Group Assignment Movie Ticket Booking System)
 
 Design website
 - Home page
