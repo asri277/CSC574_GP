@@ -29,14 +29,14 @@ Construct web base = asri {
 
 Note*
 Github tak boleh commit serentak.
-Kalau nk buat serentak boleh, buat dulu clone repo kat htdoc
-lepas dh buat changes buat dulu commit message
-lepastu, inform dulu tnya ada sesiapa yg nk commit ke kat group
+Kalau nk buat serentak boleh, buat dulu clone repo kat htdoc.
+lepas dh buat changes buat dulu commit message.
+lepastu, inform dulu tnya ada sesiapa yg nk commit ke kat group.
 kalau tak ada baru commit.
 
-then yg lain boleh review code yg dh diubah dekat github
-apa yg dh delete
-apa yg dh ubah
+then yg lain boleh review code yg dh diubah dekat github.
+apa yg dh delete,
+apa yg dh ubah,
 
 Important*
 Sebelum korang start korang punya coding pastikan korng dh "pull"
