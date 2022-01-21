@@ -105,12 +105,13 @@
   		<div class="navbar">
   			<a href="index.php"><img src="image/logo.png" class="logo"></a>
   			<ul>
+          <li><a href="#"><?php echo date("d/m/Y"); ?></a></li>
   				<li><a href="#">ID</a></li>
           <li><a href="#">Logout</a></li>
   			</ul>
   		</div>
 
-      <h1 style="text-align: center; color: #FFFFFF;">BOOK MOVIE</h1>
+      <h1 style="text-align: center; color: #FFFFFF;">BOOK MOVIE </h1>
       <div class="box">
         <fieldset>
           <legend style="color: #FFFFFF;">FILL THE FORM TO BOOK THE TICKET</legend>
@@ -126,23 +127,23 @@
               </tr>
 
               <tr>
-                <td><input type="checkbox" name="sit1" value="A01"> A01</td>
-                <td><input type="checkbox" name="sit2" value="A02"> A02</td>
-                <td><input type="checkbox" name="sit3" value="A03"> A03</td>
-                <td><input type="checkbox" name="sit4" value="A04"> A04</td>
-                <td><input type="checkbox" name="sit5" value="A05"> A05</td>
+                <td><input type="checkbox" name="sit1" value="A01/"> A01</td>
+                <td><input type="checkbox" name="sit2" value="A02/"> A02</td>
+                <td><input type="checkbox" name="sit3" value="A03/"> A03</td>
+                <td><input type="checkbox" name="sit4" value="A04/"> A04</td>
+                <td><input type="checkbox" name="sit5" value="A05/"> A05</td>
               </tr>
 
               <tr>
-                <td><input type="checkbox" name="sit6" value="A06"> A06</td>
-                <td><input type="checkbox" name="sit7" value="A07"> A07</td>
-                <td><input type="checkbox" name="sit8" value="A08"> A08</td>
-                <td><input type="checkbox" name="sit9" value="A09"> A09</td>
+                <td><input type="checkbox" name="sit6" value="A06/"> A06</td>
+                <td><input type="checkbox" name="sit7" value="A07/"> A07</td>
+                <td><input type="checkbox" name="sit8" value="A08/"> A08</td>
+                <td><input type="checkbox" name="sit9" value="A09/"> A09</td>
                 <td><input type="checkbox" name="sit10" value="A10"> A10</td>
               </tr>
 
               <tr>
-                <th colspan="5">Select Time (<?php echo date("d/m/Y"); ?>)</th>
+                <th colspan="5">Select Time (Movie Date)</th>
               </tr>
 
               <tr>

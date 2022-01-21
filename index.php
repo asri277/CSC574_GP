@@ -116,6 +116,7 @@
 				<?php
 					if(!isset($_SESSION['user_id'])){
 						echo '<li><a href="#">Sign Up</a></li>';
+            // nnti tukar untuk login punya part
 						echo '<li><a href="booking_page.php">Login</a></li>';
 					}
 					else{
