@@ -27,6 +27,10 @@ Construct web base = asri {
   - Payment system (customers)
 }
 
+Theme:
+#0F0E0E
+#950101
+
 Note*
 Github tak boleh commit serentak.
 Kalau nk buat serentak boleh, buat dulu clone repo kat htdoc.
@@ -40,4 +44,4 @@ apa yg dh ubah,
 
 Important*
 Sebelum korang start korang punya coding pastikan korng dh "pull"
-dulu dekat htdoc untuk keep up to date dari changes yg dh dibuat dari collaborator yg lain. 
+dulu dekat htdoc untuk keep up to date dari changes yg dh dibuat dari collaborator yg lain.
