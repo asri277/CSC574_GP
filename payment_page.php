@@ -118,7 +118,7 @@
           font-size: 16px;
           background-color: #950101;
           color: white;
-          border: 3px solid #FFF; 
+          border: 3px solid #FFF;
           cursor: pointer;
           margin-left: 19px;
         }
@@ -142,7 +142,7 @@
   		<div class="navbar">
   			<a href="index.php"><img src="image/logo.png" class="logo"></a>
   			<ul>
-  				<li><a href="#">ID</a></li>
+  				<li><a title="Username" href="#"><?php echo $_SESSION['username']; ?></a></li>
           <li><a href="logout.php">Logout</a></li>
   			</ul>
   		</div>

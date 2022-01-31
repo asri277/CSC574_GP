@@ -37,17 +37,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				<td>Phone Number</td>
 				<td>:</td>
 				<td><input type="text" name="cust_phoneno" value="<?php echo $result['cust_phoneno'] ?>" required></td>
-			</tr>	
-			<tr>
+			</tr>
+			<!-- <tr>
 				<td>Username</td>
 				<td>:</td>
-				<td><input type="text" name="username" value="<?php echo $result['username'] ?>" required></td>
+				<td><input type="text" name="username" value="<?php //echo $result['username'] ?>" required></td>
 			</tr>
 			<tr>
 				<td>Password</td>
 				<td>:</td>
-				<td><input type="password" name="password" value="<?php echo $result['password'] ?>" required></td>
-			</tr>
+				<td><input type="password" name="password" value="<?php //echo $result['password'] ?>" required></td>
+			</tr> -->
 			<tr>
 				<td></td>
 				<td></td>
@@ -63,12 +63,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		$cust_name = $_POST['cust_name'];
 		$cust_email = $_POST['cust_email'];
 		$cust_phoneno = $_POST['cust_phoneno'];
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+		// $username = $_POST['username'];
+		// $password = $_POST['password'];
 
 		$update = mysqli_query($con, "UPDATE `customer` SET `cust_name` = '$cust_name',
-		`cust_email` = '$cust_email', `cust_phoneno` = '$cust_phoneno', `username` = '$username', 
-		`password` = '$password' WHERE `cust_id` = '$cust_id';");
+		`cust_email` = '$cust_email', `cust_phoneno` = '$cust_phoneno' WHERE `cust_id` = '$cust_id';");
 
 		if($update)
 		{

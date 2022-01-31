@@ -278,7 +278,7 @@
     </div>
 
     <div class=signup-box>
-      <form name="signupform" action="check-signup.php" method="post">
+      <form name="signupform" action="check_signup.php" method="post">
           <table>
 
                 <tr>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
   session_start();
   include("db_connection.php");
@@ -129,7 +129,7 @@
           font-size: 16px;
           background-color: #950101;
           color: white;
-          border: 3px solid #FFF; 
+          border: 3px solid #FFF;
           cursor: pointer;
         }
 
@@ -157,18 +157,18 @@
           <div class="navbar">
             <a href="index.php"><img src="image/logo.png" class="logo"></a>
             <ul>
-              <li><a href="#">ID</a></li>
+              <li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
               <li><a href="logout.php">Logout</a></li>
             </ul>
           </div>
-          
+
           <br><br><br>
           <div class="box">
           <div class="receipt"><br>
               <center>───────<b style="font-family: 'Arial'; font-size: 32px;"> Ticket Information </b>────────</center><br>
               <p style="text-align: center;">Your ticket has been made! <br>Kindly print this receipt as your evidence.</p>
               <br><br><br>
-               
+
                <table class="centerR">
 
                 <tr>
@@ -181,63 +181,63 @@
                   <td><b>TICKET ID</td>
                   <td> :</td>
                   <td><?php echo $ticket_id; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>MOVIE NAME</td>
                   <td> :</td>
                   <td><?php echo $movie_name; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>MOVIE DATE</td>
                   <td> :</td>
                   <td><?php echo $ticket_date; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>SHOW TIME</td>
                   <td> :</td>
                   <td><?php echo $show_time; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>THEATER ROOM</td>
                   <td> :</td>
                   <td><?php echo $theater_room; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>SEAT NO</td>
                   <td> :</td>
                   <td><?php echo $seat_no; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>NO OF CUSTOMER</td>
                   <td> :</td>
                   <td><?php echo $no_of_cust; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>CUSTOMER NAME</td>
                   <td> :</td>
                   <td><?php echo $cust_name; ?> </td>
-                  
+
                 </tr>
 
                 <tr>
                   <td><b>AMOUNT</td>
                   <td> :</td>
                   <td><?php echo $payment_total; ?> </td>
-                  
+
                 </tr>
              </table>
           </div>
@@ -247,7 +247,7 @@
 
                 <div class="center">
                   <button onclick="window.print()"><i class="fa fa-print" style="margin-right: 20px;"></i><font face="Arial">PRINT RECEIPT</font></button>
-            
+
                   <button onclick="document.location='booking_page.php'"><i class="fas fa-ticket-alt"style="margin-right: 20px; "></i><font face="Arial">BOOK ANOTHER TICKET</font></button>
               </div>
 

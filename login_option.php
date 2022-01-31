@@ -113,8 +113,9 @@
           }
 
          .box-login .btn-design{
+           text-decoration: none;
             display: block;
-            width: 100%;
+            width: 90%;
             padding: 10px;
             font-size: 1.3rem;
             text-align: center;
@@ -143,7 +144,7 @@
         </style>
 
         <body>
-        
+
         <div class="background">
           <div class="navbar">
             <a href="index.php"><img src="image/logo.png" class="logo"></a>
@@ -156,11 +157,13 @@
           <h4 style="font-size: 40px; color:#FFF; text-align: center">LOGIN AS</h4><br>
           </div>
 
-          <div class=box-login>
-            <form name=loginform action="" method="post">
+          <div class="box-login">
+            <a class="btn-design" href="login_admin.php">Admin</a>
+            <a class="btn-design" href="login.php">Customer</a>
+            <!-- <form name=loginform action="" method="post">
                 <input class="btn-design" type="submit" value="Admin">
                 <input class="btn-design" type="submit" value="Customer">
-            </form>
+            </form> -->
         </div>
 
         <div style="

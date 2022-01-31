@@ -213,7 +213,7 @@
           </div>
 
           <div class="box-login">
-            <form name="loginform" action="check_login.php" method="post">
+            <form name="loginform" action="" method="post">
                   <table>
                         <tr>
                               <td><b>Username: </td>
@@ -221,13 +221,18 @@
                         </tr>
 
                         <tr>
-                              <td><b>Password: </td>
-                              <td><input type="password" name="password"></td>
+                              <td><b>New Password: </td>
+                              <td><input type="password" name="new_password"></td>
+                        </tr>
+
+                        <tr>
+                              <td><b>Confirm Password: </td>
+                              <td><input type="password" name="match_password"></td>
                         </tr>
 
                         <tr>
                               <td>  </td>
-                              <td style="text-align: right; font-size: 1rem;"> <a href="forgotPassword.php?table=customer">Forgot Password</a> </td>
+                              <td style="text-align: right; font-size: 1rem;"> <a href="login_option.php">Back</a> </td>
                         </tr>
 
                     </table>

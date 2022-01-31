@@ -178,7 +178,7 @@
 
             }
 
-                function cancelLogin() 
+                function cancelLogin()
                 {
                     var cancel;
 
@@ -187,8 +187,8 @@
                       if (r == true)
                        {
                         cancel = window.location = "index.php";
-                      } 
-                      else 
+                      }
+                      else
                       {
                         cancel = window.location = "login.php";
                       }
@@ -212,22 +212,22 @@
           <h4 style="font-size: 40px; color:#FFF; text-align: center">LOGIN</h4><br>
           </div>
 
-          <div class=box-login>
-            <form name=loginform action="check-login.php" method="post">
+          <div class="box-login">
+            <form name="loginform" action="check_login_admin.php" method="post">
                   <table>
                         <tr>
                               <td><b>Username: </td>
-                              <td><input type=text name=username></td>
+                              <td><input type="text" name="username"></td>
                         </tr>
 
                         <tr>
                               <td><b>Password: </td>
-                              <td><input type=password name=password></td>
+                              <td><input type="password" name="password"></td>
                         </tr>
 
                         <tr>
                               <td>  </td>
-                              <td style="text-align: right; font-size: 1rem;"> <a href="forgotPassword.php">Forgot Password</a> </td>
+                              <td style="text-align: right; font-size: 1rem;"> <a href="forgotPassword.php?table=staff">Forgot Password</a> </td>
                         </tr>
 
                     </table>

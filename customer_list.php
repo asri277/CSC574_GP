@@ -27,8 +27,8 @@
 			<td>Customer Name</td>
 			<td>Customer Email</td>
 			<td>Customer Phone Number</td>
-			<td>Username</td>
-			<td>Password</td>
+			<!-- <td>Username</td>
+			<td>Password</td> -->
 			<td>Operation</td>
 		</tr>
 		<?php
@@ -64,8 +64,8 @@
 				<td><?php echo $hasil['cust_name']; ?></td>
 				<td><?php echo $hasil['cust_email']; ?></td>
 				<td><?php echo $hasil['cust_phoneno']; ?></td>
-				<td><?php echo $hasil['username']; ?></td>
-				<td><?php echo $hasil['password']; ?></td>
+				<!-- <td><?php //echo $hasil['username']; ?></td>
+				<td><?php //echo $hasil['password']; ?></td> -->
 				<?php $_SESSION['cust_id'] = $hasil['cust_id'];?>
 				<td>
 					<a href="customer_edit_form.php?cust_id=<?php echo $hasil['cust_id'] ?>" style="text-decoration: none;">Edit</a> ||

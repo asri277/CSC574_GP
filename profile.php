@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 include("db_connection.php");
@@ -288,7 +288,7 @@ $row= mysqli_fetch_array($result);
       <div class="navbar">
         <a href="index.php"><img src="image/logo.png" class="logo"></a>
         <ul>
-          <li><a href="profile.php">ID</a></li>
+          <li><a href="#"><?php echo $_SESSION['username']; ?></a></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>
       </div>

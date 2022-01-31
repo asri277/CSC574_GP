@@ -115,19 +115,19 @@
   		<div class="navbar">
   			<a href="index.php"><img src="image/logo.png" class="logo"></a>
   			<ul>
-  				<li><a href="#">ID</a></li>
+  				<li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
           <li><a href="logout.php">Logout</a></li>
   			</ul>
   		</div>
 
       <h1 style="text-align: center; color: #FFFFFF;">MOVIE AVAILABLE</h1>
       <div class="box">
-  			<a href="booking_form.php" onclick="movieSelected('movieSelected','image/spiderman2.jpg',1)"><img class="image zoom" src="image/spiderman2.jpg" alt=""></a>
-  			<a href="booking_form.php" onclick="movieSelected('movieSelected','image/encanto.jpg',1)"><img class="image zoom" src="image/encanto.jpg" alt=""></a>
-  			<a href="booking_form.php" onclick="movieSelected('movieSelected','image/sing3.jpg',1)"><img class="image zoom" src="image/sing3.jpg" alt=""></a>
-  			<a href="booking_form.php" onclick="movieSelected('movieSelected','image/scream.jpg',1)"><img class="image zoom" src="image/scream.jpg" alt=""></a>
-  			<a href="booking_form.php" onclick="movieSelected('movieSelected','image/residentevil.jpg',1)"><img class="image zoom" src="image/residentevil.jpg" alt=""></a>
-  			<a href="booking_form.php" onclick="movieSelected('movieSelected','image/matrix.jpg',1)"><img class="image zoom" src="image/matrix.jpg" alt=""></a>
+  			<a title="Spider-man No Way Home" href="booking_form.php" onclick="movieSelected('movieSelected','image/spiderman2.jpg',1)"><img class="image zoom" src="image/spiderman2.jpg" alt=""></a>
+  			<a title="Encanto" href="booking_form.php" onclick="movieSelected('movieSelected','image/encanto.jpg',1)"><img class="image zoom" src="image/encanto.jpg" alt=""></a>
+  			<a title="Sing 3" href="booking_form.php" onclick="movieSelected('movieSelected','image/sing3.jpg',1)"><img class="image zoom" src="image/sing3.jpg" alt=""></a>
+  			<a title="Scream" href="booking_form.php" onclick="movieSelected('movieSelected','image/scream.jpg',1)"><img class="image zoom" src="image/scream.jpg" alt=""></a>
+  			<a title="Resident Evil" href="booking_form.php" onclick="movieSelected('movieSelected','image/residentevil.jpg',1)"><img class="image zoom" src="image/residentevil.jpg" alt=""></a>
+  			<a title="Matrix" href="booking_form.php" onclick="movieSelected('movieSelected','image/matrix.jpg',1)"><img class="image zoom" src="image/matrix.jpg" alt=""></a>
   		</div>
   	</div>
 

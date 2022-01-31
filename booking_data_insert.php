@@ -81,12 +81,7 @@
       die;
     }
 
-    //table ticket - Ticket id auto
-    //$countCust get from above
-    //$sit get from above
-
-    // $custID = $_SESSION['user_id'];
-    $custID = 1; // nnti kena open session untuk id nie
+    $custID = $_SESSION['id'];
     $ticket_date = date("Y-m-d");
     $show_time = $_POST['time'];
 

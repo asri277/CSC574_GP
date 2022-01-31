@@ -8,7 +8,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <head>
     <meta charset="utf-8">
-    <title>SUNDAY COM | LOGIN</title>
+    <title>SUNDAY COM | ADMIN</title>
      <style type="text/css">
       * {
           margin: 0;
@@ -113,8 +113,9 @@
           }
 
          .box-login .btn-design{
+           text-decoration: none;
             display: block;
-            width: 100%;
+            width: 90%;
             padding: 10px;
             font-size: 1.3rem;
             text-align: center;
@@ -143,12 +144,12 @@
         </style>
 
         <body>
-        
+
         <div class="background">
           <div class="navbar">
             <a href="index.php"><img src="image/logo.png" class="logo"></a>
             <ul>
-                <li><a href="#">ID</a></li>
+                <li><a title="Username" href="#"><?php echo $_SESSION['username']; ?></a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
           </div>
@@ -158,13 +159,18 @@
           </div>
 
           <div class=box-login>
-            <form name=loginform action="" method="post">
+            <a class="btn-design" href="customer_list.php">Customer List</a>
+            <a class="btn-design" href="movie_list.php">Movie List</a>
+            <a class="btn-design" href="payment_list.php">Payment List</a>
+            <a class="btn-design" href="staff_list.php">Staff List</a>
+            <a class="btn-design" href="ticket_list.php">Ticket List</a>
+            <!-- <form name=loginform action="" method="post">
                 <input class="btn-design" type="submit" value="Customer List">
                 <input class="btn-design" type="submit" value="Movie List">
                 <input class="btn-design" type="submit" value="Payment List">
                 <input class="btn-design" type="submit" value="Staff List">
                 <input class="btn-design" type="submit" value="Ticket List">
-            </form>
+            </form> -->
         </div>
 
         <div style="

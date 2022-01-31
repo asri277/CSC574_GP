@@ -114,14 +114,14 @@
 			<img src="image/logo.png" class="logo">
 			<ul>
 				<?php
-					if(!isset($_SESSION['user_id'])){
+					if(!isset($_SESSION['username'])){
 						echo '<li><a href="signup.php">Sign Up</a></li>';
             // nnti tukar untuk login punya part
 						echo '<li><a href="login_option.php">Login</a></li>';
 					}
 					else{
-						echo '<li><a href="#">ID</a></li>';
-						echo '<li><a href="#">Logout</a></li>';
+						echo '<li><a title="Username" href="#">'.$_SESSION['username'].'</a></li>';
+						echo '<li><a href="logout.php">Logout</a></li>';
 					}?>
 			</ul>
 		</div>

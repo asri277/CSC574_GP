@@ -108,7 +108,7 @@
           background-color: #950101;
           color: white;
           cursor: pointer;
-          border: 3px solid #FFF; 
+          border: 3px solid #FFF;
         }
 
         .button:hover{
@@ -128,8 +128,8 @@
   		<div class="navbar">
   			<a href="index.php"><img src="image/logo.png" class="logo"></a>
   			<ul>
-          <li><a href="#"><?php echo date("d/m/Y"); ?></a></li>
-  				<li><a href="#">ID</a></li>
+          <li><a title="Today Date" href="#"><?php echo date("d/m/Y"); ?></a></li>
+  				<li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
           <li><a href="#">Logout</a></li>
   			</ul>
   		</div>
