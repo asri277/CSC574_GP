@@ -89,10 +89,33 @@
         .booking-form-table td{
           text-align: center;
           height: 3.5em;
+          background-color: #0F0E0E;
+          color: #FFF;
         }
 
         .booking-form-table th{
-          background-color: #F3F3F3;
+          background-color: #950101;
+          color: #FFF;
+        }
+
+        .button {
+          width: 150px;
+          height: 50px;
+          float: center;
+          display: inline-block;
+          border:none;
+          font-size: 16px;
+          background-color: #950101;
+          color: white;
+          cursor: pointer;
+          border: 3px solid #FFF; 
+        }
+
+        .button:hover{
+          transition: 0.3s;
+          background-color: #0F0E0E;
+          color: white;
+
         }
 
 

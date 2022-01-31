@@ -73,12 +73,17 @@
 
         .payment_form_table{
           width: 100%;
-          background-color: #FFFFFF;
+          background-color: #0F0E0E;
+          color: #FFF;
         }
 
         .payment_form_table th{
-          background-color: #F3F3F3;
+          background-color: #950101;
           padding: 0.5%;
+        }
+
+        .a{
+          background-color: #FFF;
         }
 
         .payment_form_table td{
@@ -97,9 +102,33 @@
           width: 30%;
         }
 
-        #button_payment{
-          width: 100%;
+        a{
+          color: #FFF;
         }
+
+        a:hover{
+          color: #950101;
+        }
+
+
+        #button_payment {
+          float: left;
+          display: inline-block;
+          border:none;
+          font-size: 16px;
+          background-color: #950101;
+          color: white;
+          border: 3px solid #FFF; 
+          cursor: pointer;
+          margin-left: 19px;
+        }
+
+        #button_payment:hover{
+          transition: 0.3s;
+          background-color: #0F0E0E;
+          color: white;
+        }
+
 
 
     </style>
@@ -114,7 +143,7 @@
   			<a href="index.php"><img src="image/logo.png" class="logo"></a>
   			<ul>
   				<li><a href="#">ID</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><a href="logout.php">Logout</a></li>
   			</ul>
   		</div>
 
@@ -132,9 +161,10 @@
 
               <tr>
                 <td>
-                  <label for="payment"> Online Banking </label> <a href="payment_page.php?payment=ONLINE BANKING"> Click to select! </a>
+                  <center><label for="payment"> Online Banking </label> <a href="payment_page.php?payment=ONLINE BANKING"> Click to select! </a></center>
                 </td>
-                <td><label for="payment"> Visa/Mastercard </label> <a href="payment_page.php?payment=VISA"> Click to select! </a> </td>
+                <td>
+                  <center><label for="payment"> Visa/Mastercard </label> <a href="payment_page.php?payment=VISA"> Click to select! </a></center></td>
               </tr>
 
               <tr>
@@ -142,26 +172,26 @@
               </tr>
 
               <tr>
-                <td> <label for="firstname"> First Name: </label> <input type="text" name="firstname" value="" required> </td>
-                <td> <label for="lastname"> Last Name: </label> <input type="text" name="lastname" value="" required> </td>
+                <td> <center><label for="firstname"> First Name: </label> <input type="text" name="firstname" value="" required> </center></td>
+                <td> <center><label for="lastname"> Last Name: </label> <input type="text" name="lastname" value="" required></center> </td>
               </tr>
 
               <tr>
-                <td> <label for="email"> Email: </label> <input type="text" name="email" value="" required> </td>
-                <td> <label for="phone"> Phone: </label> <input type="text" name="phone" value="" required> </td>
+                <td> <center><label for="email"> Email: </label> <input type="text" name="email" value="" required></center> </td>
+                <td> <center><label for="phone"> Phone: </label> <input type="text" name="phone" value="" required></center> </td>
               </tr>
 
               <tr>
-                <td colspan="2"> <label for="address"> Address: </label> <input id="address" type="text" name="address" value="" required> </td>
+                <td colspan="2"><center> <label for="address"> Address: </label> <input id="address" type="text" name="address" value="" required> </center></td>
               </tr>
 
               <tr>
-                <td> <label for="postal_code"> Postal Code: </label> <input type="text" name="postal_code" value="" required> </td>
-                <td> <label for="city"> City: </label> <input type="text" name="city" value="" required> </td>
+                <td> <center><label for="postal_code"> Postal Code: </label> <input type="text" name="postal_code" value="" required> </center></td>
+                <td> <center><label for="city"> City: </label> <input type="text" name="city" value="" required> </center></td>
               </tr>
 
               <tr>
-                <td colspan="2"> <label for="payment"> Country: </label>
+                <td colspan="2"><label for="payment"> Country: </label>
                   <select name="country">
                     <option value="Malaysia">Malaysia</option>
                     <option value="Indonesia">Indonesia</option>
@@ -240,8 +270,8 @@
                       </tr>
 
                       <tr>
-                        <td> <label for="CVC"> CVC/CVV2*: </label> <input type="text" name="CVC" value="" maxlength="3" required> </td>
-                        <td> <label for="cardholdername"> Card Holder Name: </label> <input type="text" name="cardholdername" value="" required> </td>
+                        <td> <center><label for="CVC"> CVC/CVV2*: </label> <input type="text" name="CVC" value="" maxlength="3" required> </center</td>
+                        <td> <center><label for="cardholdername"> Card Holder Name: </label> <input type="text" name="cardholdername" value="" required></center> </td>
                       </tr>
 
                       <tr>

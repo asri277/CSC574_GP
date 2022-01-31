@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2022 at 06:44 AM
+-- Generation Time: Jan 30, 2022 at 03:32 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -36,6 +36,13 @@ CREATE TABLE `customer` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`cust_id`, `cust_name`, `cust_email`, `cust_phoneno`, `username`, `password`) VALUES
+(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'asri', 'asriali123');
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +58,18 @@ CREATE TABLE `movie` (
   `movie_length` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `movie`
+--
+
+INSERT INTO `movie` (`movie_id`, `movie_name`, `movie_date`, `movie_category`, `movie_language`, `movie_length`) VALUES
+(1, 'SPIDER-MAN NO WAY HOME', '2022-01-21', 'ACTION', 'ENGLISH', '2 HOURS'),
+(2, 'DISNEY - ENCANTO', '2022-01-22', 'CARTOON', 'ENGLISH', '2 HOURS'),
+(3, 'ILLUMINATION - SING 2', '2022-01-23', 'CARTOON', 'ENGLISH', '2 HOURS'),
+(4, 'SCREAM', '2022-01-14', 'HORROR', 'ENGLISH', '2 HOURS'),
+(5, 'RESIDENT EVIL', '2022-11-24', 'HORROR', 'ENGLISH', '2 HOURS'),
+(6, 'THE MATRIX RESURRECTIONS', '2022-01-25', 'ACTION', 'ENGLISH', '2 HOURS');
+
 -- --------------------------------------------------------
 
 --
@@ -61,20 +80,19 @@ CREATE TABLE `payment` (
   `payment_id` int(6) NOT NULL,
   `cust_id` int(6) NOT NULL,
   `payment_type` varchar(50) NOT NULL,
-  `payment_total` decimal(10,0) NOT NULL
+  `payment_total` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `reservation`
+-- Dumping data for table `payment`
 --
 
-CREATE TABLE `reservation` (
-  `reservation_id` int(6) NOT NULL,
-  `staff_id` int(6) NOT NULL,
-  `cust_id` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `payment` (`payment_id`, `cust_id`, `payment_type`, `payment_total`) VALUES
+(1, 1, 'VISA', '13.00'),
+(2, 1, 'ONLINE BANKING', '21.00'),
+(3, 1, 'ONLINE BANKING', '21.00'),
+(4, 1, 'ONLINE BANKING', '21.00'),
+(5, 1, 'ONLINE BANKING', '21.00');
 
 -- --------------------------------------------------------
 
@@ -90,6 +108,13 @@ CREATE TABLE `staff` (
   `staff_address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staff_id`, `staff_name`, `staff_email`, `staff_phoneno`, `staff_address`) VALUES
+(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'LOT 80A SUNGAI ROKAM IPOH PERAK');
+
 -- --------------------------------------------------------
 
 --
@@ -99,11 +124,24 @@ CREATE TABLE `staff` (
 CREATE TABLE `ticket` (
   `ticket_id` int(6) NOT NULL,
   `movie_id` int(6) NOT NULL,
-  `reservation_id` int(6) NOT NULL,
-  `show_time` time NOT NULL,
+  `cust_id` int(6) NOT NULL,
+  `show_time` varchar(50) NOT NULL,
   `theater_room` varchar(5) NOT NULL,
-  `seat_no` varchar(10) NOT NULL
+  `seat_no` varchar(50) NOT NULL,
+  `no_of_cust` int(3) NOT NULL,
+  `ticket_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_id`, `movie_id`, `cust_id`, `show_time`, `theater_room`, `seat_no`, `no_of_cust`, `ticket_date`) VALUES
+(6, 1, 1, '10:00 AM - 12:00 PM', 'R01', 'A01A02A03', 3, '2022-01-21'),
+(7, 2, 1, '3:00 PM - 5:00 PM', 'R02', 'A03/A04/A0', 3, '2022-01-21'),
+(8, 3, 1, '10:00 PM - 12:00 AM', 'R03', 'A07/A08/A0', 3, '2022-01-21'),
+(9, 4, 1, '3:00 PM - 5:00 PM', 'R04', 'A04/A05/A10', 3, '2022-01-21'),
+(10, 5, 1, '10:00 AM - 12:00 PM', 'R05', 'A02/A06/A07/', 3, '2022-01-21');
 
 --
 -- Indexes for dumped tables
@@ -129,14 +167,6 @@ ALTER TABLE `payment`
   ADD KEY `cust_id_fk_payment` (`cust_id`);
 
 --
--- Indexes for table `reservation`
---
-ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`reservation_id`),
-  ADD KEY `cust_id_fk_reservation` (`cust_id`),
-  ADD KEY `staff_id_fk_reservation` (`staff_id`);
-
---
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -148,7 +178,7 @@ ALTER TABLE `staff`
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`ticket_id`),
   ADD KEY `movie_id_fk_ticket` (`movie_id`),
-  ADD KEY `reservation_id_fk_ticket` (`reservation_id`);
+  ADD KEY `cust_id_fk_ticket` (`cust_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -158,37 +188,31 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `cust_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `reservation`
---
-ALTER TABLE `reservation`
-  MODIFY `reservation_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `staff_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `ticket_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -201,18 +225,11 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `cust_id_fk_payment` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`);
 
 --
--- Constraints for table `reservation`
---
-ALTER TABLE `reservation`
-  ADD CONSTRAINT `cust_id_fk_reservation` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`),
-  ADD CONSTRAINT `staff_id_fk_reservation` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`);
-
---
 -- Constraints for table `ticket`
 --
 ALTER TABLE `ticket`
-  ADD CONSTRAINT `movie_id_fk_ticket` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`),
-  ADD CONSTRAINT `reservation_id_fk_ticket` FOREIGN KEY (`reservation_id`) REFERENCES `reservation` (`reservation_id`);
+  ADD CONSTRAINT `cust_id_fk_ticket` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`),
+  ADD CONSTRAINT `movie_id_fk_ticket` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
