@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2022 at 03:32 PM
+-- Generation Time: Feb 01, 2022 at 10:08 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -41,7 +41,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `cust_name`, `cust_email`, `cust_phoneno`, `username`, `password`) VALUES
-(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'asri', 'asriali123');
+(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'asri', 'asriali123'),
+(2, 'Asri Ali', 'asriuitm27@gmail.com', '0195963751', 'clontrixs', 'cubaan123');
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,12 @@ INSERT INTO `payment` (`payment_id`, `cust_id`, `payment_type`, `payment_total`)
 (2, 1, 'ONLINE BANKING', '21.00'),
 (3, 1, 'ONLINE BANKING', '21.00'),
 (4, 1, 'ONLINE BANKING', '21.00'),
-(5, 1, 'ONLINE BANKING', '21.00');
+(5, 1, 'ONLINE BANKING', '21.00'),
+(6, 1, 'VISA', '21.00'),
+(7, 1, 'ONLINE BANKING', '21.00'),
+(8, 1, 'ONLINE BANKING', '14.00'),
+(9, 2, 'ONLINE BANKING', '7.00'),
+(10, 2, 'ONLINE BANKING', '7.00');
 
 -- --------------------------------------------------------
 
@@ -105,15 +111,17 @@ CREATE TABLE `staff` (
   `staff_name` varchar(50) NOT NULL,
   `staff_email` varchar(50) NOT NULL,
   `staff_phoneno` varchar(15) NOT NULL,
-  `staff_address` varchar(100) NOT NULL
+  `staff_address` varchar(100) NOT NULL,
+  `staff_username` varchar(20) NOT NULL,
+  `staff_password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`staff_id`, `staff_name`, `staff_email`, `staff_phoneno`, `staff_address`) VALUES
-(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'LOT 80A SUNGAI ROKAM IPOH PERAK');
+INSERT INTO `staff` (`staff_id`, `staff_name`, `staff_email`, `staff_phoneno`, `staff_address`, `staff_username`, `staff_password`) VALUES
+(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'LOT 80A SUNGAI ROKAM IPOH PERAK', 'admin', 'cubaan123');
 
 -- --------------------------------------------------------
 
@@ -141,7 +149,12 @@ INSERT INTO `ticket` (`ticket_id`, `movie_id`, `cust_id`, `show_time`, `theater_
 (7, 2, 1, '3:00 PM - 5:00 PM', 'R02', 'A03/A04/A0', 3, '2022-01-21'),
 (8, 3, 1, '10:00 PM - 12:00 AM', 'R03', 'A07/A08/A0', 3, '2022-01-21'),
 (9, 4, 1, '3:00 PM - 5:00 PM', 'R04', 'A04/A05/A10', 3, '2022-01-21'),
-(10, 5, 1, '10:00 AM - 12:00 PM', 'R05', 'A02/A06/A07/', 3, '2022-01-21');
+(10, 5, 1, '10:00 AM - 12:00 PM', 'R05', 'A02/A06/A07/', 3, '2022-01-21'),
+(11, 1, 1, '10:00 AM - 12:00 PM', 'R01', 'A01/A03/A07/', 3, '2022-01-31'),
+(12, 3, 1, '3:00 PM - 5:00 PM', 'R03', 'A03/A04/A05/', 3, '2022-01-31'),
+(13, 3, 1, '10:00 PM - 12:00 AM', 'R03', 'A04/A05/', 2, '2022-01-31'),
+(14, 1, 2, '10:00 AM - 12:00 PM', 'R01', 'A07/', 1, '2022-01-31'),
+(15, 2, 2, '10:00 AM - 12:00 PM', 'R02', 'A06/', 1, '2022-01-31');
 
 --
 -- Indexes for dumped tables
@@ -188,7 +201,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cust_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `movie`
@@ -200,7 +213,7 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `payment_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -212,7 +225,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `ticket_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ticket_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

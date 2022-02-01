@@ -11,6 +11,8 @@ $row= mysqli_fetch_array($result);
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <head>
     <meta charset="utf-8">
     <title>SUNDAY COM | PAYMENT</title>
@@ -286,11 +288,12 @@ $row= mysqli_fetch_array($result);
     <!-- Content -->
     <div class="background">
       <div class="navbar">
-        <a href="index.php"><img src="image/logo.png" class="logo"></a>
+        <a href="booking_page.php"><img src="image/logo.png" class="logo"></a>
         <ul>
-          <li><a href="#"><?php echo $_SESSION['username']; ?></a></li>
-          <li><a href="logout.php">Logout</a></li>
-        </ul>
+              <li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="search-cust.php"><i class="fa fa-search"></i></a></li>
+              <li><a href="logout.php">Logout</a></li>
+            </ul>
       </div>
 
       <h1 style="text-align: center; color: #FFFFFF;">UPDATE PROFILE</h1>

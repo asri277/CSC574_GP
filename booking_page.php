@@ -4,6 +4,8 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <head>
     <meta charset="utf-8">
     <title>SUNDAY COM | BOOKING</title>
@@ -103,6 +105,38 @@
 
           document.cookie = escape(name) + "=" +
               escape(imagePath) + expires + "; path=/";
+
+          if (imagePath == 'image/spiderman2.jpg') {
+            movieSelectedSql(name+"Sql", "SPIDER-MAN NO WAY HOME", days);
+          }else if(imagePath == 'image/encanto.jpg'){
+            movieSelectedSql(name+"Sql", "DISNEY - ENCANTO", days);
+          }else if(imagePath == 'image/sing3.jpg'){
+            movieSelectedSql(name+"Sql", "ILLUMINATION - SING 2", days);
+          }else if(imagePath == 'image/scream.jpg'){
+            movieSelectedSql(name+"Sql", "SCREAM", days);
+          }else if(imagePath == 'image/residentevil.jpg'){
+            movieSelectedSql(name+"Sql", "RESIDENT EVIL", days);
+          }else if(imagePath == 'image/matrix.jpg'){
+            movieSelectedSql(name+"Sql", "THE MATRIX RESURRECTIONS", days);
+          }
+
+
+      }
+
+      function movieSelectedSql(name, sql, days) {
+          var expires;
+
+          if (days) {
+              var date = new Date();
+              date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+              expires = "; expires=" + date.toGMTString();
+          }
+          else {
+              expires = "";
+          }
+
+          document.cookie = escape(name) + "=" +
+              escape(sql) + expires + "; path=/";
       }
 
 
@@ -113,21 +147,22 @@
     <!-- Content -->
     <div class="background">
   		<div class="navbar">
-  			<a href="index.php"><img src="image/logo.png" class="logo"></a>
-  			<ul>
-  				<li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+  			<a href="booking_page.php"><img src="image/logo.png" class="logo"></a>
+        <ul>
+          <li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+          <li><a href="search-cust.php"><i class="fa fa-search"></i></a></li>
           <li><a href="logout.php">Logout</a></li>
-  			</ul>
+        </ul>
   		</div>
 
       <h1 style="text-align: center; color: #FFFFFF;">MOVIE AVAILABLE</h1>
       <div class="box">
-  			<a title="Spider-man No Way Home" href="booking_form.php" onclick="movieSelected('movieSelected','image/spiderman2.jpg',1)"><img class="image zoom" src="image/spiderman2.jpg" alt=""></a>
-  			<a title="Encanto" href="booking_form.php" onclick="movieSelected('movieSelected','image/encanto.jpg',1)"><img class="image zoom" src="image/encanto.jpg" alt=""></a>
-  			<a title="Sing 3" href="booking_form.php" onclick="movieSelected('movieSelected','image/sing3.jpg',1)"><img class="image zoom" src="image/sing3.jpg" alt=""></a>
-  			<a title="Scream" href="booking_form.php" onclick="movieSelected('movieSelected','image/scream.jpg',1)"><img class="image zoom" src="image/scream.jpg" alt=""></a>
-  			<a title="Resident Evil" href="booking_form.php" onclick="movieSelected('movieSelected','image/residentevil.jpg',1)"><img class="image zoom" src="image/residentevil.jpg" alt=""></a>
-  			<a title="Matrix" href="booking_form.php" onclick="movieSelected('movieSelected','image/matrix.jpg',1)"><img class="image zoom" src="image/matrix.jpg" alt=""></a>
+  			<a title="Spider-man No Way Home" href="booking_information.php" onclick="movieSelected('movieSelected','image/spiderman2.jpg',1)"><img class="image zoom" src="image/spiderman2.jpg" alt=""></a>
+  			<a title="Encanto" href="booking_information.php" onclick="movieSelected('movieSelected','image/encanto.jpg',1)"><img class="image zoom" src="image/encanto.jpg" alt=""></a>
+  			<a title="Sing 3" href="booking_information.php" onclick="movieSelected('movieSelected','image/sing3.jpg',1)"><img class="image zoom" src="image/sing3.jpg" alt=""></a>
+  			<a title="Scream" href="booking_information.php" onclick="movieSelected('movieSelected','image/scream.jpg',1)"><img class="image zoom" src="image/scream.jpg" alt=""></a>
+  			<a title="Resident Evil" href="booking_information.php" onclick="movieSelected('movieSelected','image/residentevil.jpg',1)"><img class="image zoom" src="image/residentevil.jpg" alt=""></a>
+  			<a title="Matrix" href="booking_information.php" onclick="movieSelected('movieSelected','image/matrix.jpg',1)"><img class="image zoom" src="image/matrix.jpg" alt=""></a>
   		</div>
   	</div>
 

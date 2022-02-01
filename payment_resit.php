@@ -155,9 +155,10 @@
         <!-- Content -->
         <div class="background">
           <div class="navbar">
-            <a href="index.php"><img src="image/logo.png" class="logo"></a>
+            <a href="booking_page.php"><img src="image/logo.png" class="logo"></a>
             <ul>
               <li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="search-cust.php"><i class="fa fa-search"></i></a></li>
               <li><a href="logout.php">Logout</a></li>
             </ul>
           </div>

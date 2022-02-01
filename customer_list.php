@@ -68,8 +68,8 @@
 				<td><?php //echo $hasil['password']; ?></td> -->
 				<?php $_SESSION['cust_id'] = $hasil['cust_id'];?>
 				<td>
-					<a href="customer_edit_form.php?cust_id=<?php echo $hasil['cust_id'] ?>" style="text-decoration: none;">Edit</a> ||
-					<a href="delete_customer.php?cust_id=<?php echo $hasil['cust_id'] ?>" style="text-decoration: none;">Delete</a>
+					<a href="customer_edit_form.php?cust_id=<?php echo $hasil['cust_id'] ?>" style="text-decoration: none;">Edit</a>
+					<!-- <a href="delete_customer.php?cust_id=<?php //echo $hasil['cust_id'] ?>" style="text-decoration: none;">Delete</a> -->
 				</td>
 			</tr>
 			<?php }}else{ ?>

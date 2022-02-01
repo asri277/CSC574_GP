@@ -1,5 +1,15 @@
 <?php session_start();
 
+include 'db_connection.php';
+$movieName = $_COOKIE['movieSelectedSql'];
+$result = mysqli_query($con, "SELECT * FROM `movie` WHERE `movie_name` = '$movieName';");
+  $row = mysqli_fetch_array($result);
+  $movie_name = $row['movie_name'];
+  $movie_date = $row['movie_date'];
+  $movie_category = $row['movie_category'];
+  $movie_language = $row['movie_language'];
+  $movie_length = $row['movie_length'];
+
  ?>
 
 <!DOCTYPE html>
@@ -8,7 +18,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <head>
     <meta charset="utf-8">
-    <title>SUNDAY COM | BOOKING</title>
+    <title>SUNDAY COM | INFORMATION</title>
     <style type="text/css">
       * {
           margin: 0;
@@ -82,20 +92,20 @@
           width: 20%;
         }
 
-        .booking-form-table .button{
+        .booking-info-table .button{
           padding: 1%;
           float: right;
           margin-right: 1%;
         }
 
-        .booking-form-table td{
+        .booking-info-table td{
           text-align: center;
           height: 3.5em;
           background-color: #0F0E0E;
           color: #FFF;
         }
 
-        .booking-form-table th{
+        .booking-info-table th{
           background-color: #950101;
           color: #FFF;
         }
@@ -123,6 +133,7 @@
 
     </style>
   </head>
+
   <body>
 
     <!-- Content -->
@@ -137,60 +148,46 @@
         </ul>
   		</div>
 
-      <h1 style="text-align: center; color: #FFFFFF;">BOOK MOVIE </h1>
+      <h1 style="text-align: center; color: #FFFFFF;">MOVIE INFORMATION </h1>
       <div class="box">
         <fieldset>
-          <legend style="color: #FFFFFF;">FILL THE FORM TO BOOK THE TICKET</legend>
-          <form class="booking-form" action="booking_data_insert.php" method="post">
-            <table class="booking-form-table" border="1" style="width: 100%; background-color: #FFFFFF;">
+          <legend style="color: #FFFFFF;">MOVIE INFORMATION</legend>
+          <form class="booking-info" action="booking_data_insert.php" method="post">
+            <table class="booking-info-table" border="1" style="width: 100%; background-color: #FFFFFF;">
               <tr>
                 <th id="imageColumn" rowspan="9"><img id="imageSelected" src="<?php echo $_COOKIE['movieSelected']; ?>" alt="picture"></th>
-                <th colspan="5">Select Your Seat</th>
+                <th colspan="5">------------------------- MOVIE INFORMATION -------------------------</th>
               </tr>
 
               <tr>
-                <td colspan="5"> ------------------------- SCREEN DISPLAY ------------------------- </td>
+                <th> Movie Name : </th>
+                <td><?php echo $movie_name; ?> </td>
               </tr>
 
               <tr>
-                <td><input type="checkbox" name="sit1" value="A01/"> A01</td>
-                <td><input type="checkbox" name="sit2" value="A02/"> A02</td>
-                <td><input type="checkbox" name="sit3" value="A03/"> A03</td>
-                <td><input type="checkbox" name="sit4" value="A04/"> A04</td>
-                <td><input type="checkbox" name="sit5" value="A05/"> A05</td>
+                <th> Movie Date : </th>
+                <td><?php echo $movie_date; ?> </td>
               </tr>
 
               <tr>
-                <td><input type="checkbox" name="sit6" value="A06/"> A06</td>
-                <td><input type="checkbox" name="sit7" value="A07/"> A07</td>
-                <td><input type="checkbox" name="sit8" value="A08/"> A08</td>
-                <td><input type="checkbox" name="sit9" value="A09/"> A09</td>
-                <td><input type="checkbox" name="sit10" value="A10"> A10</td>
+                <th> Movie Category : </th>
+                <td><?php echo $movie_category; ?> </td>
               </tr>
 
               <tr>
-                <th colspan="5">Select Time (Movie Date)</th>
+                <th> Movie Language : </th>
+                <td><?php echo $movie_language; ?> </td>
               </tr>
 
               <tr>
-                <td colspan="4"><label for="time"> 10:00 AM - 12:00 PM </label></td>
-                <td colspan="1"><input type="radio" name="time" value="10:00 AM - 12:00 PM" checked></td>
-              </tr>
-
-              <tr>
-                <td colspan="4"><label for="time"> 3:00 PM - 5:00 PM </label></td>
-                <td colspan="1"><input type="radio" name="time" value="3:00 PM - 5:00 PM"></td>
-              </tr>
-
-              <tr>
-                <td colspan="4"><label for="time"> 10:00 PM - 12:00 AM </label></td>
-                <td colspan="1"><input type="radio" name="time" value="10:00 PM - 12:00 AM"></td>
+                <th> Movie Length : </th>
+                <td><?php echo $movie_length; ?> </td>
               </tr>
 
               <tr>
                 <td colspan="5">
-                  <input class="button" type="submit" name="submit" value="BOOK & PAY">
-                  <input class="button" type="reset" name="reset" value="CLEAR">
+                  <input class="button" type="submit" name="submit" value="CHOOSE SEAT">
+                  <input class="button" type="button" name="back" value="BACK" class="button" onclick="window.location='booking_page.php'" >
                 </td>
               </tr>
 

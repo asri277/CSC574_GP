@@ -75,7 +75,7 @@
     /* --------------------------------------LOGIN------------------------------------ */
 
         .box-login{
-            width: 300px;
+            width: 400px;
             padding: 2%;
             margin: auto;
             box-shadow: 0px 1px 8px #0F0E0E;
@@ -216,12 +216,12 @@
             <form name="loginform" action="check_login_admin.php" method="post">
                   <table>
                         <tr>
-                              <td><b>Username: </td>
+                              <td><b>Staff Username: </td>
                               <td><input type="text" name="username"></td>
                         </tr>
 
                         <tr>
-                              <td><b>Password: </td>
+                              <td><b>Staff Password: </td>
                               <td><input type="password" name="password"></td>
                         </tr>
 

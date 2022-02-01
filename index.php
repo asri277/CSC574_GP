@@ -70,6 +70,7 @@
 		transform: translateY(-50%);
 		text-align: center;
 		color: #FFFFCDD2;
+		margin-top: 40px;
 	}
 	.box{
 		position: relative;

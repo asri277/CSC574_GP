@@ -1,12 +1,23 @@
 <?php
 include("db_connection.php");
-if($_SERVER["REQUEST_METHOD"] == "POST")
+if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$getCustId = $_SESSION['cust_id'];
+	$getCustId = $_GET['cust_id'];
 	$data_edit = mysqli_query($con, "SELECT * FROM `customer` WHERE `cust_id` = '$getCustId';");
 	$result = mysqli_fetch_array($data_edit);
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -17,11 +28,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	<h2>Edit Customer Data</h2>
 		<a href="customer_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Customer ID</td>
 				<td>:</td>
-				<td><input type="text" name="cust_id" value="<?php echo $result['cust_id'] ?>" required></td>
+				<td><?php echo $result['cust_id'] ?><input type="text" name="cust_id" value="<?php echo $result['cust_id'] ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Name</td>
@@ -38,16 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 				<td>:</td>
 				<td><input type="text" name="cust_phoneno" value="<?php echo $result['cust_phoneno'] ?>" required></td>
 			</tr>
-			<!-- <tr>
-				<td>Username</td>
-				<td>:</td>
-				<td><input type="text" name="username" value="<?php //echo $result['username'] ?>" required></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td>:</td>
-				<td><input type="password" name="password" value="<?php //echo $result['password'] ?>" required></td>
-			</tr> -->
+			
 			<tr>
 				<td></td>
 				<td></td>
@@ -60,14 +62,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	if(isset($_POST['edit']))
 	{
+		$cust_id = $_POST['cust_id'];
 		$cust_name = $_POST['cust_name'];
 		$cust_email = $_POST['cust_email'];
 		$cust_phoneno = $_POST['cust_phoneno'];
 		// $username = $_POST['username'];
 		// $password = $_POST['password'];
-
-		$update = mysqli_query($con, "UPDATE `customer` SET `cust_name` = '$cust_name',
-		`cust_email` = '$cust_email', `cust_phoneno` = '$cust_phoneno' WHERE `cust_id` = '$cust_id';");
+		$sql = "UPDATE `customer` SET `cust_name` = '$cust_name',`cust_email` = '$cust_email', `cust_phoneno` = '$cust_phoneno' WHERE `customer`.`cust_id` = '$cust_id';";
+		$update = mysqli_query($con, $sql);
 
 		if($update)
 		{

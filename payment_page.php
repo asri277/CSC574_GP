@@ -4,6 +4,8 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <head>
     <meta charset="utf-8">
     <title>SUNDAY COM | PAYMENT</title>
@@ -140,11 +142,12 @@
     <!-- Content -->
     <div class="background">
   		<div class="navbar">
-  			<a href="index.php"><img src="image/logo.png" class="logo"></a>
-  			<ul>
-  				<li><a title="Username" href="#"><?php echo $_SESSION['username']; ?></a></li>
+  			<a href="booking_page.php"><img src="image/logo.png" class="logo"></a>
+        <ul>
+          <li><a title="Username" href="profile.php"><?php echo $_SESSION['username']; ?></a></li>
+          <li><a href="search-cust.php"><i class="fa fa-search"></i></a></li>
           <li><a href="logout.php">Logout</a></li>
-  			</ul>
+        </ul>
   		</div>
 
       <h1 style="text-align: center; color: #FFFFFF;">PAYMENT</h1>
