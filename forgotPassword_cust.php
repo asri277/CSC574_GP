@@ -1,6 +1,25 @@
 <?php
   session_start();
+    include("db_connection.php");
 
+    if (isset($_GET['customer']))
+    {
+          $new_password = $_POST['new_password'];
+          $username = $_POST['username'];
+
+            $query = "UPDATE `customer` SET `password`='$new_password' WHERE `username`='$username';";
+            $result = mysqli_query($con, $query);
+
+
+        if(!$result){
+          echo("CANNOT UPDATED! TRY AGAIN!!");
+        }
+
+        echo '<script>alert("Your new password has been UPDATED! Please try to Login again.")</script>';
+            echo '<script>window.location="login.php"</script>';
+
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -8,7 +27,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <head>
     <meta charset="utf-8">
-    <title>SUNDAY COM | LOGIN</title>
+    <title>SUNDAY COM | FORGOT PASSWORD</title>
      <style type="text/css">
       * {
           margin: 0;
@@ -24,13 +43,13 @@
         }
 
         .navbar{
-          width: 100%;
+          width: 87%;
           margin: auto;
-          padding: 5px 0;
+          padding: 10px 0;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background-color: rgba(255, 255, 255, .30);
+          background-color: rgba(255, 255, 255, .05);
         }
         .logo{
           width: 300px;
@@ -43,7 +62,7 @@
           list-style: none;
           display: inline-block;
           margin: 0 20px;
-          margin-right: 100px;
+          margin-right: 36px;
           position: relative;
         }
         .navbar ul li a{
@@ -204,16 +223,16 @@
           <div class="navbar">
             <a href="index.php"><img src="image/logo.png" class="logo"></a>
             <ul>
-              <li><a href="signup.php">SIGNUP</a></li>
+              <li><a href="signup.php">CUSTOMER SIGNUP</a></li>
             </ul>
           </div>
 
           <div class="starter" style="font-family: Alata;">
-          <h4 style="font-size: 40px; color:#FFF; text-align: center">LOGIN</h4><br>
+          <h4 style="font-size: 40px; color:#FFF; text-align: center">SET NEW PASSWORD</h4><br>
           </div>
 
           <div class="box-login">
-            <form name="loginform" action="check_login.php" method="post">
+            <form name="loginform" action="forgotPassword_cust.php?customer" method="POST">
                   <table>
                         <tr>
                               <td><b>Username: </td>
@@ -221,13 +240,18 @@
                         </tr>
 
                         <tr>
-                              <td><b>Password: </td>
-                              <td><input type="password" name="password"></td>
+                              <td><b>New Password: </td>
+                              <td><input type="password" name="new_password"></td>
+                        </tr>
+
+                        <tr>
+                              <td><b>Confirm Password: </td>
+                              <td><input type="password" name="match_password"></td>
                         </tr>
 
                         <tr>
                               <td>  </td>
-                              <td style="text-align: right; font-size: 1rem;"> <a href="forgotPassword_cust.php">Forgot Password</a> </td>
+                              <td style="text-align: right; font-size: 1rem;"> <a href="login_option.php">Back</a> </td>
                         </tr>
 
                     </table>
@@ -241,6 +265,8 @@
                       <p style="font-size: 1rem; text-align: center"> Not a member? <a href="signup.php"> Sign Up Here!</a> </p>
             </form>
         </div>
+
+
 
           <div style="
             margin-top: 6% ;

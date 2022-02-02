@@ -19,18 +19,18 @@
         body{
           background-repeat: repeat;
           background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(image/cinema3.jpg);
-          background-size: contain;
+          background-size: cover;
           background-position: center;
         }
 
         .navbar{
-          width: 87%;
+          width: 83%;
           margin: auto;
-          padding: 10px 0;
+          padding: 5px 0;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background-color: rgba(255, 255, 255, .05);
+          background-color: rgba(255, 255, 255, .30);
         }
         .logo{
           width: 300px;
@@ -204,7 +204,7 @@
           <div class="navbar">
             <a href="index.php"><img src="image/logo.png" class="logo"></a>
             <ul>
-              <li><a href="signup.php">SIGNUP</a></li>
+              <li><a href="signup.php">CUSTOMER SIGNUP</a></li>
             </ul>
           </div>
 
@@ -227,7 +227,7 @@
 
                         <tr>
                               <td>  </td>
-                              <td style="text-align: right; font-size: 1rem;"> <a href="forgotPassword.php?table=staff">Forgot Password</a> </td>
+                              <td style="text-align: right; font-size: 1rem;"> <a href="forgotPassword_staff.php">Forgot Password</a> </td>
                         </tr>
 
                     </table>
@@ -237,8 +237,6 @@
                       <!-- return check(); -->
                       <input class="btn-design" type="reset" value="Clear">
                       <input class="btn-design" type="button" value="Cancel" onClick="return cancelLogin()">
-
-                      <p style="font-size: 1rem; text-align: center"> Not a member? <a href="signup.php"> Sign Up Here!</a> </p>
             </form>
         </div>
 

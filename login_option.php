@@ -19,7 +19,7 @@
         body{
           background-repeat: repeat;
           background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(image/cinema3.jpg);
-          background-size: contain;
+          background-size: cover;
           background-position: center;
         }
 

@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Payment List</title>
+	<title>ADMIN | PAYMENT LIST</title>
+	<style type="text/css">
+      * {
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+        }
+
+        body{
+          background-repeat: repeat;
+          background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(image/cinema2.jpg);
+          background-size: cover;
+          background-position: center;
+        }
+
+        .background{
+
+		}
+		.navbar{
+		 width: 100%;
+		 margin: auto;
+		 padding: 5px 0;
+		 display: flex;
+		 align-items: center;
+		 justify-content: space-between;
+		 background-color: rgba(255, 255, 255, .40);
+	 	}
+		.logo{
+		 width: 300px;
+		 cursor: pointer;
+		 margin-bottom: 10px;
+		 margin-left: 30px;
+		}
+
+        </style>
 </head>
 
-<body style="background-color:#CCCCFF;">
-	<h2>Payment Data</h2>
-	<a href="admin_page.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a>
+<body>
+	<div class="background">
+		<div class="navbar">
+			<img src="image/logo.png" class="logo">
+			
+		</div>
+	</div>
+	<h2 align="center" style="color: #fff; font: 20px; padding-top: 10px;">PAYMENT DATA</h2><br>
+	<a href="admin_page.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none; margin-left: 48%;">Back</a><br><br><br>
 	<!-- <a href="payment_insert_form.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Add Data</a><br><br> -->
 
 	<center>
@@ -42,7 +82,7 @@
 
 		function search($keyword)
 		{
-			$query = "SELECT * FROM `payment` WHERE `cust_id` LIKE '%$keyword%';";
+			$query = "SELECT * FROM `payment` WHERE `payment_id` LIKE '$keyword';";
 			return query($query);
 		}
 
@@ -56,7 +96,7 @@
 		if(mysqli_num_rows($select) > 0){
 		while($hasil = mysqli_fetch_array($select)){
 			?>
-			<tr style="text-align: center;">
+			<tr style="text-align: center; background-color: rgba(255, 255, 255, .20); color: #FFF;">
 				<td><?php echo $no++; ?></td>
 				<td><?php echo $hasil['payment_id']; ?></td>
 				<td><?php echo $hasil['cust_id']; ?></td>
@@ -64,7 +104,7 @@
 				<td><?php echo $hasil['payment_total']; ?></td>
 				<?php $_SESSION['payment_id'] = $hasil['payment_id'];?>
 				<td>
-					<a href="payment_edit_form.php?payment_id=<?php echo $hasil['payment_id'] ?>" style="text-decoration: none;">Edit</a>
+					<a href="payment_edit_form.php?payment_id=<?php echo $hasil['payment_id'] ?>" style="text-decoration: none; color: #FFD019;">Edit</a>
 					<!-- <a href="delete_payment.php?payment_id=<?php //echo $hasil['payment_id'] ?>" style="text-decoration: none;">Delete</a> -->
 				</td>
 			</tr>
@@ -98,5 +138,14 @@
             }
         }
 </script>
+<div style="
+			margin-top: 24% ;
+   		color: #C6C6C6;
+   		text-align: center;
+   		padding: 20px;
+   		display: block;
+   		">
+  <p><b>Copyright &copy; 2021 Sunday Com.<b></p>
+</div>
 </body>
 </html>

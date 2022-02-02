@@ -299,7 +299,7 @@ $row= mysqli_fetch_array($result);
       <h1 style="text-align: center; color: #FFFFFF;">UPDATE PROFILE</h1>
 
       <div class=update-box>
-      <form name="updateform" action="check-update.php" method="post">
+      <form name="updateform" action="check_update.php" method="post">
           <table>
 
                <tr>

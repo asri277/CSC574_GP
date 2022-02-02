@@ -19,18 +19,18 @@
         body{
       		background-repeat: repeat;
       		background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(image/cinema3.jpg);
-      		background-size: contain;
+      		background-size: cover;
       		background-position: center;
       	}
 
         .navbar{
-      		width: 87%;
+      		width: 100%;
       		margin: auto;
-      		padding: 10px 0;
+      		padding: 5px 0;
       		display: flex;
       		align-items: center;
       		justify-content: space-between;
-          background-color: rgba(255, 255, 255, .05);
+          background-color: rgba(255, 255, 255, .30);
       	}
       	.logo{
       		width: 300px;
