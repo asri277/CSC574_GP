@@ -1,12 +1,23 @@
 <?php
 include("db_connection.php");
-if($_SERVER["REQUEST_METHOD"] == "POST")
+if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$getTicketId = $_SESSION['ticket_id'];
+	$getTicketId = $_GET['ticket_id'];
 	$data_edit = mysqli_query($con, "SELECT * FROM `ticket` WHERE `ticket_id` = '$getTicketId';");
 	$result = mysqli_fetch_array($data_edit);
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -17,47 +28,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	<h2>Edit Ticket Data</h2>
 		<a href="ticket_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Ticket ID</td>
 				<td>:</td>
-				<td><input type="text" name="ticket_id" value="<?php echo $result['ticket_id'] ?>" required></td>
+				<td><?php echo $result['ticket_id']; ?><input type="text" name="ticket_id" value="<?php echo $result['ticket_id']; ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Movie ID</td>
 				<td>:</td>
-				<td><input type="text" name="movie_id" value="<?php echo $result['movie_id'] ?>" required></td>
+				<td><?php echo $result['movie_id']; ?><input type="text" name="movie_id" value="<?php echo $result['movie_id']; ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Customer ID</td>
 				<td>:</td>
-				<td><input type="text" name="cust_id" value="<?php echo $result['cust_id'] ?>" required></td>
+				<td><?php echo $result['cust_id']; ?><input type="text" name="cust_id" value="<?php echo $result['cust_id']; ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Show Time</td>
 				<td>:</td>
-				<td><input type="text" name="show_time" value="<?php echo $result['show_time'] ?>" required></td>
-			</tr>	
+				<td><input type="text" name="show_time" value="<?php echo $result['show_time']; ?>" required></td>
+			</tr>
 			<tr>
 				<td>Theater Room</td>
 				<td>:</td>
-				<td><input type="text" name="theater_room" value="<?php echo $result['theater_room'] ?>" required></td>
+				<td><input type="text" name="theater_room" value="<?php echo $result['theater_room']; ?>" required></td>
 			</tr>
 			<tr>
 				<td>Seat No</td>
 				<td>:</td>
-				<td><input type="text" name="seat_no" value="<?php echo $result['seat_no'] ?>" required></td>
+				<td><input type="text" name="seat_no" value="<?php echo $result['seat_no']; ?>" required></td>
 			</tr>
 			<tr>
 				<td>Number of Customer</td>
 				<td>:</td>
-				<td><input type="text" name="no_of_cust" value="<?php echo $result['no_of_cust'] ?>" required></td>
+				<td><input type="text" name="no_of_cust" value="<?php echo $result['no_of_cust']; ?>" required></td>
 			</tr>
 			<tr>
 				<td>Ticket Date</td>
 				<td>:</td>
-				<td><input type="text" name="ticket_date" value="<?php echo $result['ticket_date'] ?>" required></td>
-			</tr>	
+				<td><input type="text" name="ticket_date" value="<?php echo $result['ticket_date']; ?>" required></td>
+			</tr>
 			<tr>
 				<td></td>
 				<td></td>
@@ -70,13 +81,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	if(isset($_POST['edit']))
 	{
-		$staff_name = $_POST['staff_name'];
-		$staff_email = $_POST['staff_email'];
-		$staff_phoneno = $_POST['staff_phoneno'];
-		$staff_address = $_POST['staff_address'];
+		$ticket_id = $_POST['ticket_id'];
+		$show_time = $_POST['show_time'];
+		$theater_room = $_POST['theater_room'];
+		$seat_no = $_POST['seat_no'];
+		$no_of_cust = $_POST['no_of_cust'];
+		$ticket_date = $_POST['ticket_date'];
 
-		$update = mysqli_query($con, "UPDATE `staff` SET `staff_name` = '$staff_name',
-		`staff_email` = '$staff_email', `staff_phoneno` = '$staff_phoneno', `staff_address` = '$staff_address'  WHERE `staff_id` = '$staff_id';");
+		$sql = "UPDATE `ticket` SET `show_time` = '$show_time', `theater_room` = '$theater_room',
+		 `seat_no` = '$seat_no', `no_of_cust` = '$no_of_cust', `ticket_date` = '$ticket_date' WHERE `ticket`.`ticket_id` = '$ticket_id';";
+		$update = mysqli_query($con, $sql);
 
 		if($update)
 		{

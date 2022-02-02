@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 				<td>:</td>
 				<td><input type="text" name="cust_phoneno" value="<?php echo $result['cust_phoneno'] ?>" required></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 				<td></td>

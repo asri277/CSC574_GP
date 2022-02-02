@@ -68,8 +68,8 @@
 				<td><?php echo $hasil['movie_length']; ?></td>
 				<?php $_SESSION['movie_id'] = $hasil['movie_id'];?>
 				<td>
-					<a href="movie_edit_form.php?movie_id=<?php echo $hasil['movie_id'] ?>" style="text-decoration: none;">Edit</a> ||
-					<a href="delete_movie.php?movie_id=<?php echo $hasil['movie_id'] ?>" style="text-decoration: none;">Delete</a>
+					<a href="movie_edit_form.php?movie_id=<?php echo $hasil['movie_id'] ?>" style="text-decoration: none;">Edit</a>
+					<!-- <a href="delete_movie.php?movie_id=<?php //echo $hasil['movie_id'] ?>" style="text-decoration: none;">Delete</a> -->
 				</td>
 			</tr>
 			<?php }}else{ ?>

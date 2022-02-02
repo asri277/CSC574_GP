@@ -1,8 +1,8 @@
 <?php session_start();
 
 include 'db_connection.php';
-$movieName = $_COOKIE['movieSelectedSql'];
-$result = mysqli_query($con, "SELECT * FROM `movie` WHERE `movie_name` = '$movieName';");
+$movieID = $_COOKIE['movieSelectedSql'];
+$result = mysqli_query($con, "SELECT * FROM `movie` WHERE `movie_id` = '$movieID';");
   $row = mysqli_fetch_array($result);
   $movie_name = $row['movie_name'];
   $movie_date = $row['movie_date'];

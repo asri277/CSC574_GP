@@ -1,12 +1,23 @@
 <?php
 include("db_connection.php");
-if($_SERVER["REQUEST_METHOD"] == "POST")
+if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$getPaymentId = $_SESSION['payment_id'];
+	$getPaymentId = $_GET['payment_id'];
 	$data_edit = mysqli_query($con, "SELECT * FROM `payment` WHERE `payment_id` = '$getPaymentId';");
 	$result = mysqli_fetch_array($data_edit);
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -17,27 +28,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	<h2>Edit Payment Data</h2>
 		<a href="payment_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Payment ID</td>
 				<td>:</td>
-				<td><input type="text" name="payment_id" value="<?php echo $result['payment_id'] ?>" required></td>
+				<td><?php echo $result['payment_id']; ?><input type="text" name="payment_id" value="<?php echo $result['payment_id']; ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Customer ID</td>
 				<td>:</td>
-				<td><input type="text" name="cust_id" value="<?php echo $result['cust_id'] ?>" required></td>
+				<td><?php echo $result['cust_id']; ?><input type="text" name="cust_id" value="<?php echo $result['cust_id']; ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Payment Type</td>
 				<td>:</td>
-				<td><input type="text" name="payment_type" value="<?php echo $result['payment_type'] ?>" required></td>
+				<td><input type="text" name="payment_type" value="<?php echo $result['payment_type']; ?>" required></td>
 			</tr>
 			<tr>
 				<td>Payment Total</td>
 				<td>:</td>
-				<td><input type="text" name="payment_total" value="<?php echo $result['payment_total'] ?>" required></td>
-			</tr>	
+				<td><input type="text" name="payment_total" value="<?php echo $result['payment_total']; ?>" required></td>
+			</tr>
 			<tr>
 				<td></td>
 				<td></td>
@@ -50,11 +61,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	if(isset($_POST['edit']))
 	{
+		$payment_id = $_POST['payment_id'];
 		$payment_type = $_POST['payment_type'];
 		$payment_total = $_POST['payment_total'];
 
 		$update = mysqli_query($con, "UPDATE `payment` SET `payment_type` = '$payment_type',
-		`payment_total` = '$payment_total' WHERE `payment_id` = '$payment_id';");
+		`payment_total` = '$payment_total' WHERE `payment`.`payment_id` = '$payment_id';");
 
 		if($update)
 		{

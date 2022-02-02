@@ -107,17 +107,17 @@
               escape(imagePath) + expires + "; path=/";
 
           if (imagePath == 'image/spiderman2.jpg') {
-            movieSelectedSql(name+"Sql", "SPIDER-MAN NO WAY HOME", days);
+            movieSelectedSql(name+"Sql", "1", days);
           }else if(imagePath == 'image/encanto.jpg'){
-            movieSelectedSql(name+"Sql", "DISNEY - ENCANTO", days);
+            movieSelectedSql(name+"Sql", "2", days);
           }else if(imagePath == 'image/sing3.jpg'){
-            movieSelectedSql(name+"Sql", "ILLUMINATION - SING 2", days);
+            movieSelectedSql(name+"Sql", "3", days);
           }else if(imagePath == 'image/scream.jpg'){
-            movieSelectedSql(name+"Sql", "SCREAM", days);
+            movieSelectedSql(name+"Sql", "4", days);
           }else if(imagePath == 'image/residentevil.jpg'){
-            movieSelectedSql(name+"Sql", "RESIDENT EVIL", days);
+            movieSelectedSql(name+"Sql", "5", days);
           }else if(imagePath == 'image/matrix.jpg'){
-            movieSelectedSql(name+"Sql", "THE MATRIX RESURRECTIONS", days);
+            movieSelectedSql(name+"Sql", "6", days);
           }
 
 

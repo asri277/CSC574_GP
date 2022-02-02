@@ -7,7 +7,7 @@
 <body style="background-color:#CCCCFF;">
 	<h2>Ticket Data</h2>
 	<a href="admin_page.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a>
-	<a href="ticket_insert_form.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Add Data</a><br><br>
+	<!-- <a href="ticket_insert_form.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Add Data</a><br><br> -->
 
 	<center>
 	<form action="" method="post">
@@ -66,8 +66,8 @@
 				<td><?php echo $hasil['seat_no']; ?></td>
 				<?php $_SESSION['ticket_id'] = $hasil['ticket_id'];?>
 				<td>
-					<a href="ticket_edit_form.php?ticket_id=<?php echo $hasil['ticket_id'] ?>" style="text-decoration: none;">Edit</a> ||
-					<a href="delete_ticket.php?ticket_id=<?php echo $hasil['ticket_id'] ?>" style="text-decoration: none;">Delete</a>
+					<a href="ticket_edit_form.php?ticket_id=<?php echo $hasil['ticket_id'] ?>" style="text-decoration: none;">Edit</a>
+					<!-- <a href="delete_ticket.php?ticket_id=<?php //echo $hasil['ticket_id'] ?>" style="text-decoration: none;">Delete</a> -->
 				</td>
 			</tr>
 			<?php }}else{ ?>

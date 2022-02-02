@@ -1,12 +1,23 @@
 <?php
 include("db_connection.php");
-if($_SERVER["REQUEST_METHOD"] == "POST")
+if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$getStaffId = $_SESSION['staff_id'];
+	$getStaffId = $_GET['staff_id'];
 	$data_edit = mysqli_query($con, "SELECT * FROM `staff` WHERE `staff_id` = '$getStaffId';");
 	$result = mysqli_fetch_array($data_edit);
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -17,32 +28,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	<h2>Edit Staff Data</h2>
 		<a href="staff_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Staff ID</td>
 				<td>:</td>
-				<td><input type="text" name="staff_id" value="<?php echo $result['staff_id'] ?>" required></td>
+				<td><?php echo $result['staff_id']; ?><input type="text" name="staff_id" value="<?php echo $result['staff_id']; ?>" hidden></td>
 			</tr>
 			<tr>
 				<td>Name</td>
 				<td>:</td>
-				<td><input type="text" name="staff_name" value="<?php echo $result['staff_name'] ?>" required></td>
+				<td><input type="text" name="staff_name" value="<?php echo $result['staff_name']; ?>" required></td>
 			</tr>
 			<tr>
 				<td>Email</td>
 				<td>:</td>
-				<td><input type="text" name="staff_email" value="<?php echo $result['staff_email'] ?>" required></td>
+				<td><input type="text" name="staff_email" value="<?php echo $result['staff_email']; ?>" required></td>
 			</tr>
 			<tr>
 				<td>Phone Number</td>
 				<td>:</td>
-				<td><input type="text" name="staff_phoneno" value="<?php echo $result['staff_phoneno'] ?>" required></td>
-			</tr>	
+				<td><input type="text" name="staff_phoneno" value="<?php echo $result['staff_phoneno']; ?>" required></td>
+			</tr>
 			<tr>
 				<td>Address</td>
 				<td>:</td>
-				<td><input type="text" name="staff_address" value="<?php echo $result['staff_address'] ?>" required></td>
-			</tr>	
+				<td><input type="text" name="staff_address" value="<?php echo $result['staff_address']; ?>" required></td>
+			</tr>
 			<tr>
 				<td></td>
 				<td></td>
@@ -55,13 +66,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	if(isset($_POST['edit']))
 	{
+		$staff_id = $_POST['staff_id'];
 		$staff_name = $_POST['staff_name'];
 		$staff_email = $_POST['staff_email'];
 		$staff_phoneno = $_POST['staff_phoneno'];
 		$staff_address = $_POST['staff_address'];
 
 		$update = mysqli_query($con, "UPDATE `staff` SET `staff_name` = '$staff_name',
-		`staff_email` = '$staff_email', `staff_phoneno` = '$staff_phoneno', `staff_address` = '$staff_address'  WHERE `staff_id` = '$staff_id';");
+		`staff_email` = '$staff_email', `staff_phoneno` = '$staff_phoneno', `staff_address` = '$staff_address'  WHERE `staff`.`staff_id` = '$staff_id';");
 
 		if($update)
 		{

@@ -10,14 +10,35 @@ if(isset($_POST['submit']))
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$query = "INSERT INTO `customer` VALUES('','$cust_id','$cust_name','$cust_email','$cust_phoneno', '$username', '$password');";
-			mysqli_query($con, $query);
-			echo '<script type="text/javascript">';
-			echo 'alert("Registration Successful");';
-			echo 'window.location.href = "customer_list.php";';
-			echo '</script>';
+	$query = "INSERT INTO `customer` (`cust_name`, `cust_email`, `cust_phoneno`, `username`, `password`)
+	VALUES ('$cust_name', '$cust_email', '$cust_phoneno', '$username', '$password');";
+
+	$result = mysqli_query($con, $query);
+
+	if($result){
+		echo '<script type="text/javascript">';
+		echo 'alert("Registration Successful");';
+		echo 'window.location.href = "customer_list.php";';
+		echo '</script>';
+	}else{
+		echo '<script type="text/javascript">';
+		echo 'alert("Data Error!");';
+		echo 'window.location.href = "customer_list.php";';
+		echo '</script>';
+	}
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -28,11 +49,11 @@ if(isset($_POST['submit']))
 	<h2>Insert Customer Data</h2>
 		<a href="customer_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Customer ID</td>
 				<td>:</td>
-				<td><input type="text" name="cust_id" placeholder="Customer ID" required></td>
+				<td>Auto Increment<input type="text" name="cust_id" placeholder="Customer ID" hidden></td>
 			</tr>
 			<tr>
 				<td>Name</td>

@@ -10,14 +10,35 @@ if(isset($_POST['submit']))
 	$movie_language = $_POST['movie_language'];
 	$movie_length = $_POST['movie_length'];
 
-	$query = "INSERT INTO `movie` VALUES('','$movie_id','$movie_name','$movie_date','$movie_category', '$movie_language', '$movie_length');";
-			mysqli_query($con, $query);
-			echo '<script type="text/javascript">';
-			echo 'alert("Registration Successful");';
-			echo 'window.location.href = "movie_list.php";';
-			echo '</script>';
+	$query = "INSERT INTO `movie` (`movie_name`, `movie_date`, `movie_category`, `movie_language`, `movie_length`)
+	VALUES ('$movie_name', '$movie_date', '$movie_category', '$movie_language', '$movie_length');";
+
+	$result = mysqli_query($con, $query);
+
+	if($result){
+		echo '<script type="text/javascript">';
+		echo 'alert("Registration Successful");';
+		echo 'window.location.href = "movie_list.php";';
+		echo '</script>';
+	}else{
+		echo '<script type="text/javascript">';
+		echo 'alert("Data Error!");';
+		echo 'window.location.href = "movie_list.php";';
+		echo '</script>';
+	}
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -28,11 +49,11 @@ if(isset($_POST['submit']))
 	<h2>Insert Movie Data</h2>
 		<a href="movie_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Movie ID</td>
 				<td>:</td>
-				<td><input type="text" name="movie_id" placeholder="Movie ID" required></td>
+				<td>Auto Increment<input type="text" name="movie_id" placeholder="Movie ID" hidden></td>
 			</tr>
 			<tr>
 				<td>Movie Name</td>
@@ -66,7 +87,7 @@ if(isset($_POST['submit']))
 			</tr>
 		</table>
 	</form>
-	
+
 	<script type="text/javascript">
         var IdealTimeOut = 60; //60 seconds
         var idleSecondsTimer = null;

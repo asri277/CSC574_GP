@@ -8,15 +8,38 @@ if(isset($_POST['submit']))
 	$staff_email = $_POST['staff_email'];
 	$staff_phoneno = $_POST['staff_phoneno'];
 	$staff_address = $_POST['staff_address'];
+	$staff_username = $_POST['staff_username'];
+	$staff_password = $_POST['staff_password'];
 
-	$query = "INSERT INTO `staff` VALUES('','$staff_id','$staff_name','$staff_email','$staff_phoneno', '$staff_address');";
-			mysqli_query($con, $query);
-			echo '<script type="text/javascript">';
-			echo 'alert("Registration Successful");';
-			echo 'window.location.href = "staff_list.php";';
-			echo '</script>';
+	$query = "INSERT INTO `staff` ( `staff_name`, `staff_email`, `staff_phoneno`, `staff_address`, `staff_username`, `staff_password`)
+	VALUES ( '$staff_name', '$staff_email', '$staff_phoneno', '$staff_address', '$staff_username', '$staff_password');";
+	$result = mysqli_query($con, $query);
+
+	if($result){
+		echo '<script type="text/javascript">';
+		echo 'alert("Registration Successful");';
+		echo 'window.location.href = "staff_list.php";';
+		echo '</script>';
+	}else{
+		echo '<script type="text/javascript">';
+		echo 'alert("Data Error!");';
+		echo 'window.location.href = "staff_list.php";';
+		echo '</script>';
+	}
+
 }
 ?>
+
+<style type="text/css">
+	.table_edit{
+		width: 45em;
+	}
+	.table_edit input{
+		padding: 2%;
+		width: 100%;
+	}
+
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -27,11 +50,11 @@ if(isset($_POST['submit']))
 	<h2>Insert Staff Data</h2>
 		<a href="staff_list.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a><br><br>
 	<form action="" method="post">
-		<table>
+		<table class="table_edit">
 			<tr>
 				<td>Staff ID</td>
 				<td>:</td>
-				<td><input type="text" name="staff_id" placeholder="Staff ID" required></td>
+				<td>Auto increment<input type="text" name="staff_id" placeholder="Staff ID" hidden></td>
 			</tr>
 			<tr>
 				<td>Name</td>
@@ -52,6 +75,16 @@ if(isset($_POST['submit']))
 				<td>Address</td>
 				<td>:</td>
 				<td><input type="text" name="staff_address" placeholder="Address" required></td>
+			</tr>
+			<tr>
+				<td>New Username</td>
+				<td>:</td>
+				<td><input type="text" name="staff_username" placeholder="Username" required></td>
+			</tr>
+			<tr>
+				<td>New Password</td>
+				<td>:</td>
+				<td><input type="password" name="staff_password" placeholder="Password" required></td>
 			</tr>
 			<tr>
 				<td></td>

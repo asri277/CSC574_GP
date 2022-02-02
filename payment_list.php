@@ -7,7 +7,7 @@
 <body style="background-color:#CCCCFF;">
 	<h2>Payment Data</h2>
 	<a href="admin_page.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Back</a>
-	<a href="payment_insert_form.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Add Data</a><br><br>
+	<!-- <a href="payment_insert_form.php" style="padding: 0.4% 0.8%;background-color: #6082B6;color: #fff;border-radius: 2px;text-decoration: none;">Add Data</a><br><br> -->
 
 	<center>
 	<form action="" method="post">
@@ -64,8 +64,8 @@
 				<td><?php echo $hasil['payment_total']; ?></td>
 				<?php $_SESSION['payment_id'] = $hasil['payment_id'];?>
 				<td>
-					<a href="payment_edit_form.php?payment_id=<?php echo $hasil['payment_id'] ?>" style="text-decoration: none;">Edit</a> ||
-					<a href="delete_payment.php?payment_id=<?php echo $hasil['payment_id'] ?>" style="text-decoration: none;">Delete</a>
+					<a href="payment_edit_form.php?payment_id=<?php echo $hasil['payment_id'] ?>" style="text-decoration: none;">Edit</a>
+					<!-- <a href="delete_payment.php?payment_id=<?php //echo $hasil['payment_id'] ?>" style="text-decoration: none;">Delete</a> -->
 				</td>
 			</tr>
 			<?php }}else{ ?>
