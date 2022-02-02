@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2022 at 10:08 AM
+-- Generation Time: Feb 02, 2022 at 06:11 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -41,8 +41,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cust_id`, `cust_name`, `cust_email`, `cust_phoneno`, `username`, `password`) VALUES
-(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'asri', 'asriali123'),
-(2, 'Asri Ali', 'asriuitm27@gmail.com', '0195963751', 'clontrixs', 'cubaan123');
+(1, 'MUHAMMAD IMRAN BIN NAZRY', 'swatclone@gmail.com', '0184635243', 'asri', 'asriali123'),
+(2, 'Asri Ali', 'asriuitm27@gmail.com', '0195963751', 'clontrixs', 'cubaan123'),
+(3, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm273@gmail.com', '0175846237', 'asriuitm', 'try123456'),
+(4, 'Muhammad Asri', 'asriuitm27@gmail.com', '0195963751', 'trial12', 'password123');
 
 -- --------------------------------------------------------
 
@@ -69,7 +71,9 @@ INSERT INTO `movie` (`movie_id`, `movie_name`, `movie_date`, `movie_category`, `
 (3, 'ILLUMINATION - SING 2', '2022-01-23', 'CARTOON', 'ENGLISH', '2 HOURS'),
 (4, 'SCREAM', '2022-01-14', 'HORROR', 'ENGLISH', '2 HOURS'),
 (5, 'RESIDENT EVIL', '2022-11-24', 'HORROR', 'ENGLISH', '2 HOURS'),
-(6, 'THE MATRIX RESURRECTIONS', '2022-01-25', 'ACTION', 'ENGLISH', '2 HOURS');
+(6, 'THE MATRIX RESURRECTIONS', '2022-01-25', 'ACTION', 'ENGLISH', '2 HOURS'),
+(7, 'Trial', '2022-02-11', 'ACTION', 'ENGLISH', '2 HOURS'),
+(8, 'Cubaan', '2022-02-19', 'HUNTER', 'ENGLISH', '2 HOURS');
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,8 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staff_id`, `staff_name`, `staff_email`, `staff_phoneno`, `staff_address`, `staff_username`, `staff_password`) VALUES
-(1, 'MUHAMMAD ASRI BIN MOHD ALI', 'asriuitm27@gmail.com', '0195963751', 'LOT 80A SUNGAI ROKAM IPOH PERAK', 'admin', 'cubaan123');
+(1, 'MUHAMMAD ASRI BIN MOHD ALI AI', 'swatclone@gmail.com', '0164732827', 'LOT 80A SUNGAI ROKAM IPOH PERAK', 'admin', 'cubaan123'),
+(2, 'Anonymous', 'asriuitm27@gmail.com', '0195963751', 'Alamat', 'admin2', 'cubaan123');
 
 -- --------------------------------------------------------
 
@@ -145,7 +150,7 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `movie_id`, `cust_id`, `show_time`, `theater_room`, `seat_no`, `no_of_cust`, `ticket_date`) VALUES
-(6, 1, 1, '10:00 AM - 12:00 PM', 'R01', 'A01A02A03', 3, '2022-01-21'),
+(6, 1, 1, '11:00 AM - 12:00 PM', 'R011', 'A01A02A031', 31, '2022-01-22'),
 (7, 2, 1, '3:00 PM - 5:00 PM', 'R02', 'A03/A04/A0', 3, '2022-01-21'),
 (8, 3, 1, '10:00 PM - 12:00 AM', 'R03', 'A07/A08/A0', 3, '2022-01-21'),
 (9, 4, 1, '3:00 PM - 5:00 PM', 'R04', 'A04/A05/A10', 3, '2022-01-21'),
@@ -190,8 +195,8 @@ ALTER TABLE `staff`
 --
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`ticket_id`),
-  ADD KEY `movie_id_fk_ticket` (`movie_id`),
-  ADD KEY `cust_id_fk_ticket` (`cust_id`);
+  ADD KEY `cust_id_fk_ticket` (`cust_id`),
+  ADD KEY `movie_id_fk_ticket` (`movie_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -201,13 +206,13 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cust_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cust_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `movie_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -219,7 +224,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `staff_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ticket`
@@ -235,14 +240,14 @@ ALTER TABLE `ticket`
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `cust_id_fk_payment` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`);
+  ADD CONSTRAINT `cust_id_fk_payment` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ticket`
 --
 ALTER TABLE `ticket`
-  ADD CONSTRAINT `cust_id_fk_ticket` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`),
-  ADD CONSTRAINT `movie_id_fk_ticket` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`);
+  ADD CONSTRAINT `cust_id_fk_ticket` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`cust_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `movie_id_fk_ticket` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
