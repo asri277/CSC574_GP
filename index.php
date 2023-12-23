@@ -149,7 +149,7 @@
    		padding: 20px;
    		display: block;
    		">
-  <p><b>Copyright &copy; 2021 Sunday Com.<b></p>
+  <p><b>Copyright &copy; 2021 Sunday Com. cubaan<b></p>
 </div>
 </body>
 </html>
